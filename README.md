@@ -2,9 +2,11 @@
 
 Machine learning project to estimate California residential property values, built as a decision-support tool for appraisers, lenders, and property owners.
 
+**Live Demo:** [homeniq-machine-learning-for-california-housing-price-predicti.streamlit.app](https://homeniq-machine-learning-for-california-housing-price-predicti.streamlit.app/)
+
 ## Background
 
-Homeniq is a independent property valuation firm in California. Traditional appraisal relies heavily on manual analysis, which is slow and can be inconsistent. This project builds a regression model that produces fast, consistent, data-driven property value estimates to support — not replace — certified appraisers.
+Homeniq is a (fictional) independent property valuation firm in California. Traditional appraisal relies heavily on manual analysis, which is slow and can be inconsistent. This project builds a regression model that produces fast, consistent, data-driven property value estimates to support — not replace — certified appraisers.
 
 ## Dataset
 
@@ -62,15 +64,24 @@ Based on the classic California housing census dataset.
 - Enrich the dataset with newer data and additional property/location features (e.g. lot size, amenities, GIS data).
 - Treat model output as decision support, not a replacement for certified appraisers.
 
+## Model Deployment
+
+The tuned XGBoost model is deployed as an interactive web app using **Streamlit**, allowing users to input property details and get an instant price estimate.
+
+🔗 **Try it here:** [https://homeniq-machine-learning-for-california-housing-price-predicti.streamlit.app/](https://homeniq-machine-learning-for-california-housing-price-predicti.streamlit.app/)
+
+The app loads the saved `XGBoostModel_CaliforniaHouse.sav` pipeline (preprocessing + model) and runs predictions on user-provided inputs (location, income, room counts, ocean proximity, etc.) in real time.
+
 ## Tech Stack
 
-`Python` · `pandas` · `numpy` · `scikit-learn` · `XGBoost` · `seaborn` / `matplotlib` · `geopandas`
+`Python` · `pandas` · `numpy` · `scikit-learn` · `XGBoost` · `seaborn` / `matplotlib` · `geopandas` · `Streamlit`
 
 ## Project Structure
 
 ```
 ├── Caps3__California_Housing_Price.ipynb   # Full analysis & modeling notebook
 ├── XGBoostModel_CaliforniaHouse.sav        # Saved tuned XGBoost model (pickle)
+├── app.py                                  # Streamlit app for model deployment
 └── README.md
 ```
 
@@ -87,4 +98,11 @@ Load the saved model for inference:
 import pickle
 model = pickle.load(open('XGBoostModel_CaliforniaHouse.sav', 'rb'))
 prediction = model.predict(X_new)
+```
+
+Or run the Streamlit app locally:
+
+```bash
+pip install streamlit
+streamlit run app.py
 ```
