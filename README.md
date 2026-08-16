@@ -4,7 +4,7 @@ Machine learning project to estimate California residential property values, bui
 
 ## Background
 
-Homeniq is a (fictional) independent property valuation firm in California. Traditional appraisal relies heavily on manual analysis, which is slow and can be inconsistent. This project builds a regression model that produces fast, consistent, data-driven property value estimates to support — not replace — certified appraisers.
+Homeniq is a independent property valuation firm in California. Traditional appraisal relies heavily on manual analysis, which is slow and can be inconsistent. This project builds a regression model that produces fast, consistent, data-driven property value estimates to support — not replace — certified appraisers.
 
 ## Dataset
 
